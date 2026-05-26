@@ -1,0 +1,96 @@
+\documentclass[12pts]{article}
+
+%Importamos los paquetres
+\usepackage[utf8]{inputenc} %Configura caracteres especiales
+\usepackage[spanish]{babel} %Configura en español los valores predeterminados
+\usepackage{amsmath} %Para manejo de formulas
+\usepackage{array} %Mejor manejo de las tablas
+\usepackage{geometry} %Margenes
+\geometry{margin=2.5cm} %Modifica el margen de la hoja
+
+\newcommand{\minombre}{Yessica Nahomi}
+\newcommand{\nombrepractica}{Practica 4: Tablas, entornos y comandos}
+\newcommand{\universidad}{UASLP-FEPZM}
+
+\newenvironment{ejercicio}
+{
+\vspace{0.3cm}
+\noindent\textbf{Ejercicio:}
+\begin{itshape}%Modifica a italica el texto del ejercicio
+}
+{
+\end{itshape}
+\vspace{0.3}
+}
+\begin{document}
+\begin{center}
+{\LARGE \nombrepractica\\[5.5cm]
+{\LARGE \minombre}\\[5.5cm]
+{\LARGE \universidad}\\[5.5cm]
+{\LARGE \today}
+\end{center}
+
+
+\section{Introduccion}
+En esta practica aprenderemos a crear tablas y usar \textbf{environments}, incluyendo environments personalizados.
+
+\section{Uso de tablas}
+\begin{table}[h]
+\centering
+\begin{tabular}{c|c|c}
+\hline
+Alumno&Materuia&Calificacion\\
+Pedro&Matematicas&8.0\\
+Maria&Español&10.0\\
+
+
+\end{tabular}
+\caption{Calificaciones de alumnos}
+\label{tab:calificaciones}
+\end{table}
+
+\subsection{Tablas con columnas combinadas}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c|c|c}
+    \hline
+    \multicolumn{3}{|c|}{Horario}\\ \hline
+    Dia&Horario&Materia \\ \hline
+    Lunes&10 a 11&Matematicas \\ \hline
+    Martes&12 a 13&Fisica \\ \hline
+
+    \end{tabular}
+    \caption{Horario semanal}
+    \label{tab:placeholder}
+\end{table}
+
+
+\section{Environment personalizado}
+Ahora usaremos nuestro environment \textbf{ejercicio}
+
+\begin{ejercicio}
+    Crear una tabla con al menos 4 filas y 3 columnoas, rellenala con contenido afin a un tema en especifico.
+
+\end{ejercicio}
+
+\section*{Tabla sobre Lenguajes de Programación}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Lenguaje} & \textbf{Uso Principal} & \textbf{Año de Creación} \\
+\hline
+Python & Inteligencia Artificial & 1991 \\
+\hline
+Java & Aplicaciones Empresariales & 1995 \\
+\hline
+C++ & Desarrollo de Videojuegos & 1985 \\
+\hline
+JavaScript & Desarrollo Web & 1995 \\
+\hline
+\end{tabular}
+\end{center}
+
+
+
+\end{document}

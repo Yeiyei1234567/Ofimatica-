@@ -1,0 +1,34 @@
+\documentclass[12pt]{article}
+\usepackage[american]{circuitikz}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{margin=2cm}
+
+
+\title{Dibujo de un circuito eléctrico}
+\author{Yessica Nahomi Gonzalez Martinez.}
+\date{February 2026}
+
+\begin{document}
+\centering
+
+\section{Circuito en paralelo}
+\begin{circuitikz}
+\draw 
+(0,0) to [battery, invert,  l=$12V$] (0,4)
+\draw (0,4) -- (4,4)
+\draw (0,0) -- (4,0)
+\draw (0,0) -- (6,0) 
+\draw (4,4) -- (6,4)
+
+node at (2.5,2.5) {$V_1$}
+node at (4.5,2.5) {$V_2$}
+node at (6.5,2.5) {$V_3$}
+
+\draw (2,4) to [R, l={$R_1=2\Omega$}] (2,0)
+\draw (4,4) to [R, l={$R_2=7\Omega$}] (4,0)
+\draw (6,4) to [R, l={$R_3=4\Omega$}] (6,0)
+\end{circuitikz}
+
+
+\end{document}

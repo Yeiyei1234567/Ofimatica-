@@ -1,0 +1,1192 @@
+ \documentclass[twocolumn,12pt]{article}
+\usepackage[margin=1cm]{geometry} % Márgenes reducidos para 4 hojas
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{lipsum} % Para texto de relleno
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{titlesec}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathptmx}
+ \usepackage[spanish]{babel}
+    \usepackage[utf8]{inputenc}
+    \usepackage{graphicx}
+    \usepackage{geometry}
+    \usepackage{xcolor}
+    \usepackage{fancyhdr}
+    \usepackage{wrapfig}
+    \usepackage{tcolorbox}
+    \usepackage{array}
+    \usepackage{titlesec}
+    \usepackage{helvet}
+    \usepackage{mathptmx}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=1.8cm]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox} 
+\usepackage{fancyhdr}
+\usepackage[spanish]{babel}
+\usepackage[a4paper,margin=1.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{pagecolor}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=0pt]{geometry}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{graphicx} 
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\definecolor{techblack}{HTML}{000000} 
+\definecolor{electricblue}{HTML}{00D4FF}
+\definecolor{accentpink}{HTML}{FF007A}
+\geometry{margin=2cm}
+
+\begin{document}  % <-- agregado para compilar
+
+% --- 1. FONDO NEGRO PURO ---
+\begin{tikzpicture}[remember picture, overlay]
+\fill[techblack] (current page.south west) rectangle (current page.north east);
+
+% Retícula de puntos
+\foreach \x in {0,1,...,21}
+    \foreach \y in {0,1,...,30}
+        \fill[white, opacity=0.06] (\x,\y) circle (0.4pt);
+
+% --- 2. LETRAS DE FONDO (MÁS NOTORIAS) ---
+\node[opacity=0.12, rotate=90, text=white] at ([xshift=4.5cm]current page.center) {\fontsize{130}{130}\selectfont \textbf{MECATRONIX}};
+\node[opacity=0.05, rotate=90, text=electricblue] at ([xshift=6cm]current page.center) {\fontsize{90}{90}\selectfont \textbf{ENGINE}};
+
+% --- 3. DISEÑO DE CIRCUITOS Y HUD ---
+\begin{scope}[electricblue, opacity=0.5, line width=1pt]
+\draw ([shift={(-2cm,-2cm)}]current page.north east) arc (0:270:1.5cm);
+\draw ([shift={(-2cm,-2cm)}]current page.north east) arc (0:270:1.2cm);
+\foreach \a in {0,30,...,240}
+    \draw ([shift={(-2cm,-2cm)}]current page.north east) +(\a:1.2cm) -- +(\a:1.5cm);
+
+\draw (current page.north west) -- ++(3,-3) -- ++(2,0) -- ++(1,-1);
+\fill ([shift={(6cm,-4cm)}]current page.north west) circle (2.5pt);
+\draw (current page.south east) -- ++(-4,4) -- ++(-2,0) -- ++(-1,1);
+\fill ([shift={(-7cm,5cm)}]current page.south east) circle (2.5pt);
+
+\draw ([shift={(0.5cm, -0.5cm)}]current page.north west) -- ++(2.5,0) -- ++(1,-1);
+\draw ([shift={(3.5cm, -3.5cm)}]current page.north west) -- ++(0,-2);
+\end{scope}
+
+% --- 4. TÍTULO PRINCIPAL ---
+\node[anchor=north west, text=white, inner sep=0pt] at ([shift={(1.5cm,-2cm)}]current page.north west) {
+\fontsize{55}{55}\selectfont \textbf{MECA}\textcolor{electricblue}{\textbf{TRONIX}}
+};
+\node[anchor=north west, text=electricblue] at ([shift={(1.6cm,-3.6cm)}]current page.north west) {
+\large \textit{Diseñando el movimiento, programando el futuro $\cdot$ 2026}
+};
+\draw[electricblue, line width=2.5pt] ([shift={(1.5cm,-4.2cm)}]current page.north west) -- ++(7cm,0);
+
+% --- 5. BLOQUES DE DATOS ---
+\foreach \i in {0,1,2}
+    \fill[accentpink, opacity=0.8] (1.5, 9-\i*0.4) rectangle (1.8, 9.2-\i*0.4);
+
+% --- 6. ÁREA DE IMAGEN (Visor Táctico) ---
+\node[anchor=center] at ([shift={(0, -0.5cm)}]current page.center) {
+\begin{tikzpicture}
+\node at (0,0) {\includegraphics[width=11.5cm]{WhatsApp Image 2026-03-27 at 6.26.19 PM (1).jpeg}}; 
+
+\foreach \i in {-1,1} \foreach \j in {-1,1} {
+    \draw[electricblue, line width=2.5pt] (\i*6.2,\j*3.7) -- (\i*6.2,\j*4.2) -- (\i*5.7,\j*4.2);
+    \draw[white, opacity=0.3] (\i*5.5,\j*3.5) rectangle (\i*6,\j*4);
+}
+\node[white, opacity=0.7] at (0,4.6) {\fontsize{20}{20}\selectfont \textbf{Control, precisión y optimización}};
+\draw[accentpink, line width=1.2pt] (-3,4.2) -- (3,4.2);
+\node[accentpink, opacity=0.9] at (0,-4.6) {\texttt{[ PROTOCOLO DE ANÁLISIS ACTIVO ]}};
+\end{tikzpicture}
+};
+
+% --- 7. TITULARES ---
+\node[anchor=south west, text=white, text width=8.5cm] at ([shift={(2.5cm,2.2cm)}]current page.south west) {
+{\Large \textcolor{electricblue}{\textbf{01.}} \textbf{Entrevista a un profesional}}\\[0.5cm]
+{\Large \textcolor{electricblue}{\textbf{02.}} \textbf{Historia y Evolucion}}\\[0.5cm]
+{\Large \textcolor{electricblue}{\textbf{03.}} \textbf{Mecatronica en la Medicina}}\\[0.5cm]
+{\Large \textcolor{electricblue}{\textbf{04.}} \textbf{Explicacion de un Proyecto}}\\[0.5cm]
+{\Large \textcolor{electricblue}{\textbf{05.}} \textbf{Como nos puede quitar el\\trabajo}}\\
+};
+
+\fill[electricblue, opacity=0.25] (1.5,2.2) rectangle (1.7,8.2);
+\fill[electricblue] (1.5,7.7) rectangle (1.7,8.2);
+
+% --- 8. ELEMENTOS DE BORDE ---
+\foreach \y in {5,6,...,15}
+    \draw[white, opacity=0.3] (0,\y) -- (0.4,\y);
+\node[anchor=west, rotate=90, text=white!30] at (0.5, 10.5) {\texttt{SYSTEM\_GRID\_V4}};
+
+% --- 9. PIE DE PÁGINA ---
+\node[anchor=south east, text=white] at ([shift={(-1.5cm,1.2cm)}]current page.south east) {
+\begin{tabular}{r}
+\textbf{FEPZM} \\
+\textcolor{accentpink}{\texttt{SEGUNDO SEMESTRE}} \\
+\texttt{UASLP}
+\end{tabular}
+};
+
+\end{tikzpicture}
+\clearpage
+\newpage
+\setlength{page}{1}
+
+===============
+\newpage
+\begin{tikzpicture}[remember picture, overlay]
+    \fill[techblack] (current page.south west) rectangle (current page.north east);
+    
+    % Barra lateral de progreso técnica
+    \fill[electricblue, opacity=0.05] (0,0) rectangle (1.2, \paperheight);
+    \foreach \y in {0.5,1,...,29} {
+        \draw[electricblue, opacity=0.2] (0.2, \y) -- (1, \y);
+        \node[electricblue, opacity=0.1] at (0.6, \y+0.2) {\tiny \texttt{\y}};
+    }
+    \fill[accentpink] (0.3, 20) rectangle (0.9, 21); % Marcador
+
+    % Título
+    \node[anchor=north west, text=white] at ([shift={(2.5cm,-2cm)}]current page.north west) {
+        \fontsize{45}{45}\selectfont \textbf{IN}\textcolor{electricblue}{\textbf{DICE}}
+    };
+    \draw[accentpink, line width=2pt] ([shift={(2.5cm,-3.4cm)}]current page.north west) -- ++(2.5cm,0);
+
+    % --- LISTA DE TEMAS (5) ---
+    \node[anchor=north west, text=white, text width=13cm] at ([shift={(3cm,-5.5cm)}]current page.north west) {
+        
+        \foreach \n/\t/\p/\desc in {
+            01/ENTREVISTA A UN PROFESIONAL/08/\\Entrevista de cerca a un estidiante de la Carrera.\\
+            \vspace{0.2cm}
+            Entrevista personal a un especialista en la carrera.,
+            02/HISTORIA E EVOLUCION/15/\\Todo su origen y evolucion.\\
+            EVOLUCION.\\
+            Transformacion tecnologica.\\
+            Impacto a lo largo del tiempo.\\
+            Tendencias.,
+            03/MECATRONICA EN LA MEDICINA/22/\\Su importancia en la Medicina y Aplicaciones.,
+            04/EXPLICACION DE UN PROYECTO/30/\\El proceso detras de un proyecto Mecatronico.,
+            05/COMO NOS PUEDE QUITAR EL TRABAJO/38/\\Sus ventajas y Desventajas.,
+        } {
+
+            {\Large \textcolor{electricblue}{\textbf{\n}} \quad \textbf{\t}} \hfill \textit{\p} \\
+            % Mini icono por tema
+            \begin{tikzpicture}
+                \draw[electricblue!60, opacity=0.5] (0,0) -- (13,0);
+                \fill[accentpink] (0,-0.05) rectangle (0.2, 0.05);
+            \end{tikzpicture} \\
+            \textcolor{white!40}{\small \desc} \vspace{0.7cm}
+        }
+    };
+
+    % ESQUEMA DE BRAZO ROBÓTICO (DIBUJO DE FONDO DETALLADO)
+    \begin{scope}[white, opacity=0.05, shift={([shift={(-4cm,8cm)}]current page.center)}]
+        \draw[line width=1pt] (0,0) circle (1.5cm);
+        \draw (0,0) -- (3,-2) -- (4,-5);
+        \draw[dashed] (3,-2) circle (0.5cm);
+        \node at (2,0) {\tiny \texttt{P-ARTICULATION-04}};
+        % Bloques de código aleatorio
+        \node[anchor=north west] at (4,-1) {\tiny \texttt{IF (SENSE > 0.4) \{}};
+        \node[anchor=north west] at (4.2,-1.3) {\tiny \texttt{DRIVE\_MOTOR(A1);}};
+        \node[anchor=north west] at (4,-1.6) {\tiny \texttt{\}}};
+    \end{scope}
+
+    % Cierre HUD
+    \draw[electricblue, opacity=0.3] (current page.south west) ++(2,1.5) -- ++(15,0) -- ++(1,1);
+    \node[anchor=south west, white, opacity=0.2] at (2,0.8) {\tiny \texttt{MECATRONIX\_V4.0\_BUILD\_2026}};
+
+\end{tikzpicture}
+
+\clearpage
+\newpage
+\setlength{page}{2}
+
+% Configuración de colores
+\definecolor{bg}{HTML}{000000} % Fondo negro
+\definecolor{titleblue}{HTML}{1E90FF} % Azul dodger
+\definecolor{subblue}{HTML}{4682B4} % Azul acero
+\definecolor{text}{HTML}{FFFFFF} % Texto blanco
+
+% Reconfiguración del documento para fondo negro
+\pagecolor{bg}
+\color{text}
+
+% Estilos de títulos
+\makeatletter
+\renewcommand{\maketitle}{
+  \begin{center}
+    {\Huge \color{titleblue} \bfseries \@title \par}
+    {\Large \color{subblue} \@author \par}
+    {\large \@date \par}
+    \vspace{1cm}
+  \end{center}
+}
+
+\renewcommand{\section}{\@startsection{section}{1}{\z@}%
+  {-3.5ex \@plus -1ex \@minus -.2ex}%
+  {2.3ex \@plus.2ex}%
+  {\normalfont \Large \bfseries \color{titleblue}}}
+
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+  {-3.25ex\@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\normalfont \large \bfseries \color{subblue}}}
+\makeatother
+
+% Configuración de enlaces
+\hypersetup{
+  colorlinks=true,
+  linkcolor=subblue,
+  citecolor=titleblue,
+  urlcolor=titleblue
+}
+
+% Configuración de gráficos
+\captionsetup{
+  textfont={color=text},
+  labelfont={color=subblue,bf}
+}
+
+
+
+% COLORES
+\definecolor{neonblue}{RGB}{0,191,255}
+\definecolor{darkbg}{RGB}{15,15,15}
+
+\pagecolor{darkbg}
+\color{white}
+
+% ENCABEZADO
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\color{neonblue}\textbf{REVISTA MECATRÓNICA}}
+\fancyhead[R]{\thepage}
+
+% TITULOS
+\titleformat{\section}{\large\bfseries\color{neonblue}}{}{0em}{}
+
+\begin{document}
+
+% LINEAS
+\begin{tikzpicture}[remember picture,overlay]
+\draw[neonblue, line width=1pt] (current page.north west) -- ++(7cm,0);
+\draw[neonblue, line width=1pt] (current page.south east) -- ++(-7cm,0);
+\end{tikzpicture}
+
+% TITULO
+\begin{center}
+{\Huge \color{neonblue}\textbf{MECATRÓNICA}}\\
+{\Large Historia y Evolución}\\
+{\small \textbf{Por: DIANA ANAHI BUENAVIDES MARTÍNEZ}}
+\end{center}
+
+\vspace{0.3cm}
+\noindent\rule{\linewidth}{0.5pt}
+
+
+
+% INTRO
+\section{Introducción}
+La mecatrónica es una disciplina relativamente reciente dentro de la ingeniería, pero su desarrollo ha sido clave en la transformación tecnológica del mundo moderno. Surge como una integración de la mecánica, la electrónica y la informática, con el objetivo de diseñar sistemas automatizados cada vez más eficientes.
+
+Su evolución ha estado estrechamente ligada al avance de la tecnología, especialmente en áreas como la computación y la automatización industrial.
+
+\noindent\rule{\linewidth}{0.3pt}
+
+% ORIGEN
+\section{Origen de la Mecatrónica}
+El término “mecatrónica” fue introducido en 1969 por la empresa japonesa Yaskawa Electric Corporation. En sus inicios, se utilizó para describir la combinación de sistemas mecánicos con componentes electrónicos.
+
+Durante esta etapa, la industria buscaba mejorar la eficiencia de los procesos productivos, lo que llevó al desarrollo de máquinas automatizadas.
+
+\begin{center}
+\fcolorbox{neonblue}{black}{
+\parbox[c][5cm][c]{0.8\linewidth}{%
+    \centering
+    \vfill
+    \includegraphics[width=0.95\linewidth, height=5.0cm, large=10.0cm keepaspectratio]{Ingenieria-mecatronica-UAS.jpg}%
+    \vfill
+}}
+\end{center}
+
+\noindent\rule{\linewidth}{0.3pt}
+
+% EVOLUCION DETALLADA
+\section{Evolución de la Mecatrónica}
+
+\subsection{Década de 1970: Automatización Inicial}
+Durante esta década, comenzaron a desarrollarse los primeros robots industriales. Estos sistemas eran básicos, pero marcaron el inicio de la automatización en la industria.
+
+\subsection{Década de 1980: Integración Electrónica}
+Con la aparición de los microprocesadores, la mecatrónica dio un gran salto. Los sistemas comenzaron a ser más precisos y programables.
+
+\subsection{Década de 1990: Sistemas Inteligentes}
+En esta etapa, se incorporaron sistemas computacionales más avanzados, permitiendo el desarrollo de máquinas con mayor capacidad de control y toma de decisiones.
+
+\subsection{Siglo XXI: Era Digital}
+Actualmente, la mecatrónica se encuentra en una etapa avanzada donde se integra con tecnologías como la inteligencia artificial, el Internet de las Cosas (IoT) y la robótica avanzada.
+
+\begin{center}
+\fcolorbox{neonblue}{black}{
+\parbox[c][5cm][c]{0.8\linewidth}{%
+    \centering
+    \vfill
+    \includegraphics[width=0.95\linewidth, height=5.0cm, large=10.0cm keepaspectratio]{WhatsApp Image 2026-03-27 at 6.26.19 PM (1).jpeg}%
+    \vfill
+}}
+\end{center}
+
+\noindent\rule{\linewidth}{0.3pt}
+
+% TRANSFORMACION
+\section{Transformación Tecnológica}
+A lo largo del tiempo, la mecatrónica ha pasado de sistemas simples a sistemas altamente complejos. Esta evolución ha sido impulsada por el desarrollo de nuevas tecnologías como sensores avanzados, software inteligente y sistemas de control automatizados.
+
+\begin{center}
+\fcolorbox{neonblue}{black}{
+\parbox[c][5cm][c]{0.8\linewidth}{%
+    \centering
+    \vfill
+    \includegraphics[width=0.95\linewidth, height=5.0cm, large=10.0cm keepaspectratio]{WhatsApp Image 2026-03-27 at 9.46.29 PM (1).jpeg}%
+    \vfill
+}}
+\end{center}
+
+\noindent\rule{\linewidth}{0.3pt}
+
+% IMPACTO HISTORICO
+\section{Impacto a lo Largo del Tiempo}
+La mecatrónica ha tenido un impacto significativo en diferentes épocas. En sus inicios, permitió la automatización industrial; posteriormente, impulsó el desarrollo de tecnologías más avanzadas.
+
+Hoy en día, su impacto se observa en áreas como la robótica, la medicina y la industria tecnológica.
+
+\noindent\rule{\linewidth}{0.3pt}
+
+% FUTURO
+\section{Tendencias Futuras}
+El futuro de la mecatrónica apunta hacia sistemas cada vez más autónomos e inteligentes. Se espera que continúe evolucionando con el desarrollo de la inteligencia artificial y la automatización avanzada.
+
+\begin{center}
+\fcolorbox{neonblue}{black}{
+\parbox[c][5cm][c]{0.8\linewidth}{%
+    \centering
+    \vfill
+    \includegraphics[width=0.95\linewidth, height=5.0cm, large=10.0cm keepaspectratio]{WhatsApp Image 2026-03-27 at 9.46.30 PM.jpeg}%
+    \vfill
+}}
+\end{center}
+\noindent\rule{\linewidth}{0.3pt}
+
+% CONCLUSION
+\section{Conclusión}
+La historia y evolución de la mecatrónica reflejan el avance tecnológico de la humanidad. Desde sus inicios como una simple integración de disciplinas, hasta su estado actual como una de las áreas más avanzadas de la ingeniería, su desarrollo ha sido fundamental para la innovación.
+
+\vspace{0.3cm}
+\noindent\rule{\linewidth}{0.5pt}
+
+\section{Línea del Tiempo de la Mecatrónica}
+
+\begin{center}
+\fcolorbox{neonblue}{black}{
+\parbox[c][5cm][c]{0.8\linewidth}{%
+    \centering
+    \vfill
+    \includegraphics[width=0.95\linewidth, height=5.0cm, large=10.0cm keepaspectratio]{WhatsApp Image 2026-03-27 at 9.46.31 PM (1).jpeg}%
+    \vfill
+}}
+\end{center}
+
+\begin{multicols}{2}
+
+\textbf{\color{neonblue}1969 — Origen del término}\\
+El concepto de mecatrónica es introducido en Japón por la empresa Yaskawa. Surge como una combinación de mecánica y electrónica para mejorar los sistemas industriales.  
+
+\vspace{0.3cm}
+
+\textbf{\color{neonblue}Década de 1970 — Automatización inicial}\\
+Se desarrollan los primeros robots industriales utilizados en fábricas. Estos sistemas eran básicos, pero marcaron el inicio de la automatización moderna.  
+
+\vspace{0.3cm}
+
+\textbf{\color{neonblue}Década de 1980 — Revolución electrónica}\\
+Con la aparición de los microprocesadores, los sistemas mecatrónicos se vuelven más precisos y programables, permitiendo un mayor control.  
+
+\vspace{0.3cm}
+
+\textbf{\color{neonblue}Década de 1990 — Sistemas inteligentes}\\
+Se integran computadoras más avanzadas, lo que permite desarrollar sistemas con mayor capacidad de análisis y toma de decisiones.  
+
+
+\textbf{\color{neonblue}Década de 2000 — Automatización avanzada}\\
+La mecatrónica se consolida en la industria, integrando software avanzado y sistemas automatizados más complejos.  
+
+\vspace{0.3cm}
+
+\textbf{\color{neonblue}Década de 2010 — Era digital}\\
+Surgen tecnologías como el Internet de las Cosas (IoT), permitiendo la conexión entre dispositivos y sistemas inteligentes.  
+
+\vspace{0.3cm}
+
+\textbf{\color{neonblue}Actualidad — Inteligencia artificial}\\
+La mecatrónica incorpora inteligencia artificial y aprendizaje automático, dando lugar a sistemas autónomos capaces de adaptarse al entorno.  
+
+\vspace{0.3cm}
+
+\textbf{\color{neonblue}Futuro — Innovación continua}\\
+Se espera que la mecatrónica continúe evolucionando hacia sistemas más inteligentes, robots colaborativos y ciudades automatizadas.  
+
+\end{multicols}
+
+\vspace{0.3cm}
+
+
+
+\clearpage
+\newpage
+\setlength{page}{3}
+
+
+\definecolor{negroFondo}{HTML}{000000}
+\definecolor{azulCian}{HTML}{00FFFF}
+\definecolor{amarilloNeon}{HTML}{FFF000}
+\definecolor{blancoTexto}{HTML}{FFFFFF} 
+
+\pagecolor{negroFondo}
+\color{blancoTexto}
+
+\newtcolorbox{entrevista}[1]{
+    enhanced,
+    colback=negroFondo,
+    colframe=azulCian,
+    coltitle=amarilloNeon,
+    fonttitle=\bfseries\large,
+    title={#1},
+    colupper=blancoTexto, 
+    arc=3mm,
+    boxrule=1.5pt,
+    left=15pt,
+    right=15pt,
+    top=10pt,
+    bottom=10pt,
+    breakable
+}
+
+% ENCABEZADO
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{azulCian}\leaders\hrule height \headrulewidth\hfill}}
+\fancyhead[L]{\textcolor{azulCian}{MECATRONIX}}
+\fancyhead[R]{\textcolor{azulCian}{UASLP}}
+
+\begin{document}
+
+% HOJA 1 
+\begin{center}
+    \vspace*{0.5cm}
+    \textcolor{azulCian}{\Huge \textbf{ENTREVISTA A UN PROFESIONAL}} \\
+    \textcolor{white}{\rule{10cm}{0.5pt}}
+    \vspace*{0.8cm}
+\end{center}
+
+\begin{entrevista}{¿Qué expectativas tenías al entrar a la carrera y cuáles cambiaron con el tiempo?}
+El enfoque académico es mucho más analítico que práctico. Te forman fuerte en fundamentos: análisis,control, electrónica y digital. Eso es correcto desde el punto de vista formativo, pero genera una diferencia cuando entras a planta o a proyectos reales, donde lo que se requiere es implementación
+\end{entrevista}
+
+\begin{entrevista}{¿Cuál fue el proyecto más importante o interesante que has realizado?}
+Trabajé en la implementación de un sistema de control para un eje servo en una línea de posicionamiento. Básicamente, era un mecanismo que tenía que mover una pieza a distintas posiciones con buena repetibilidad y sincronizarse con otras estaciones.
+\end{entrevista}
+
+\begin{entrevista}{¿Cómo fue tu transición de estudiante a profesional?}
+Desde las prácticas profesionales fue donde entendí que saber resolver ejercicios no es lo mismo que resolver problemas reales.
+\end{entrevista}
+
+\begin{entrevista}{¿Cuál ha sido el mayor reto en tu carrera profesional?}
+Uno de los mayores retos fue lidiar con sistemas que nadie entiende completamente… pero de los que depende la producción.
+\end{entrevista}
+
+\begin{entrevista}{¿Cómo equilibrabas la teoría con la práctica?}
+Equilibraba la teoría con la práctica primero aprendiendo los fundamentos a fondo y luego aplicándolos en pequeños proyectos y laboratorios, revisando cada falla para entenderla teóricamente. Después, en prácticas profesionales o proyectos reales, usaba la teoría como guía y la práctica como verificación, documentando lecciones para reforzar ambos aspectos.
+\end{entrevista}
+
+\begin{center}
+\fcolorbox{neonblue}{black}{
+\parbox[c][5cm][c]{0.8\linewidth}{%
+    \centering
+    \vfill
+    \includegraphics[width=0.95\linewidth, height=5.0cm, large=10.0cm keepaspectratio]{WhatsApp Image 2026-03-27 at 7.09.26 PM.jpeg}%
+    \vfill
+}}
+\end{center}
+
+\newpage
+
+% HOJA 2
+\begin{center}
+    \vspace*{0.5cm}
+    \textcolor{azulCian}{\Huge \textbf{ENTREVISTA A EGRESADO DE LA FACULTAD DE INGENIERIA}} \\
+    \textcolor{white}{\rule{10cm}{0.5pt}}
+    \vspace*{0.8cm}
+\end{center}
+
+\begin{entrevista}{¿Qué fue lo más difícil al salir de la universidad?}
+Lo más difícil al salir de la universidad fue enfrentar lo que sabía en teoría y lo que realmente pedía la industria.
+En la carrera aprendes de todo un poco, pero cuando buscas trabajo te das cuenta de que muchas empresas quieren que ya tengas experiencia en cosas muy específicas.
+\end{entrevista}
+
+\begin{entrevista}{¿Qué habilidades te hubiera gustado desarrollar más durante la carrera?}
+Habilidades prácticas en herramientas industriales. Eso es lo que más piden allá afuera.
+\end{entrevista}
+
+\begin{entrevista}{¿Cómo manejaste la falta de experiencia al inicio?}
+Aceptar que no sabia todo porque se empieza donde se pueda, sin esperar el trabajo perfecto. A veces toca entrar a algo no tan ideal.
+\end{entrevista}
+
+\begin{entrevista}{¿Qué áreas de la mecatrónica tienen más oportunidades laborales según tu experiencia?}
+Desde mi experiencia como egresado, suelen ser las que están directamente ligadas a la industria y la producción. Por ejemplo: control de procesos, reparacion de equipos, calidad o programacion de robots.
+\end{entrevista}
+
+\begin{entrevista}{¿Qué errores crees que los estudiantes deberían evitar?}
+Algunos se concentran solo en lo que les gusta al inicio como mecánica o programación y no prueban otras ramas. Esto puede cerrar oportunidades más adelante. Evitar compararse, cada quien avanza a su ritmo.
+\end{entrevista}
+
+\begin{center}
+\fcolorbox{neonblue}{black}{
+\parbox[c][5cm][c]{0.8\linewidth}{%
+    \centering
+    \vfill
+    \includegraphics[width=0.95\linewidth, height=5.0cm, large=10.0cm keepaspectratio]{WhatsApp Image 2026-03-27 at 7.15.03 PM (1).jpeg}%
+    \vfill
+}}
+\end{center}
+
+\newpage
+
+% HOJA 3
+\begin{center}
+    \vspace*{0.5cm}
+    \textcolor{azulCian}{\Huge \textbf{ENTREVISTA A ALUMNO AVANZADO}} \\
+    \textcolor{white}{\rule{10cm}{0.5pt}}
+    \vspace*{0.8cm}
+\end{center}
+
+\begin{entrevista}{¿Qué materias consideras que han sido más importantes en tu formación?}
+Diría que las materias que más han marcado mi formación son aquellas que realmente te permiten integrar: mecánica, electrónica y control, no solo aprender, sino que tambien practicar.
+\end{entrevista}
+
+\begin{entrevista}{¿Cuál ha sido el proyecto más complejo que has desarrollado?}
+Un proyecto complejo que desarrollé fue el diseño de un dron autónomo para seguimiento de trayectoria en tiempo real. La dificultad principal estuvo en integrar mecánica, electrónica, control y programación para que el dron volara de forma estable.
+\end{entrevista}
+
+\begin{entrevista}{¿Te gustaría especializarte en alguna rama específica de la mecatrónica?}
+Sí, definitivamente me gustaría especializarme en robótica y control avanzado. Dentro de la mecatrónica, me interesa mucho trabajar en sistemas autónomos y colaborativos, donde se combinan control de movimiento, y sensores inteligentes.
+\end{entrevista}
+
+\begin{entrevista}{¿Prefieres más el área de programación, electrónica o mecánica? ¿Por qué?}
+Me inclino más hacia mecánica, aunque en mecatrónica todas las áreas son importantes. La razón es que la mecánica es la base física de cualquier sistema, si la estructura, de los mecanismos no están bien diseñados, por más buena electrónica o programación que tengas, el sistema no funcionará correctamente.
+\end{entrevista}
+
+\begin{entrevista}{¿Qué le recomendarías a alguien que va empezando la carrera?}
+Le diría que no se desanimen por la dificultad de la carrera. Al inicio todo parece muy complicado, pero es normal nadie nace sabiendo integrar, y programar. Cada error que cometan en sus proyectos es en realidad un aprendizaje que no obtendrán solo de los libros.
+\end{entrevista}
+
+\begin{center}
+    \textcolor{azulCian}{\rule{10cm}{4cm}} \\ 
+    \small \textcolor{azulCian}{ALUMNO}
+\end{center}
+
+
+\newpage
+% Título
+\title{MECATRÓNICA EN MEDICINA: INTEGRANDO TECNOLOGÍA Y SALUD PARA UN FUTURO MEJOR}
+
+
+\begin{document}
+
+\maketitle
+\section{Introducción}
+La medicina mecatrónica es una disciplina interdisciplinaria que fusiona principios de la ingeniería mecánica, electrónica, informática, control y ciencias biomédicas para desarrollar dispositivos y sistemas que transforman la práctica clínica. En las últimas dos décadas, su evolución ha permitido pasar de equipos estáticos y de baja precisión a sistemas inteligentes capaces de adaptarse a las características de cada paciente.
+
+En el contexto regional, la ciudad de Rioverde (San Luis Potosí) se ha consolidado como un nodo de investigación en esta área, con proyectos que buscan mejorar el acceso a tecnologías médicas de alto rendimiento en zonas rurales de México. Los desafíos principales incluyen la optimización de costos, la robustez de los sistemas y la integración con protocolos de atención sanitaria existentes.
+
+\subsection{Marco Conceptual}
+Se define la medicina mecatrónica como el conjunto de técnicas y procesos que permiten diseñar, fabricar y operar dispositivos médicos con componentes electromecánicos integrados, controlados por algoritmos específicos. Su objetivo fundamental es mejorar la precisión diagnóstica, reducir riesgos en procedimientos terapéuticos y potenciar la rehabilitación funcional de pacientes.
+
+Las aplicaciones se agrupan en cuatro categorías principales:
+\begin{itemize}
+    \item Sistemas de diagnóstico por imagen y sensores biomédicos
+    \item Robótica quirúrgica y equipos de tratamiento asistido
+    \item Prótesis y ortesis inteligentes
+    \item Sistemas de rehabilitación y monitoreo continuo
+\end{itemize}
+
+\subsection{Evolución Histórica}
+Los primeros antecedentes se remontan a la década de 1950 con el desarrollo de los primeros marcapasos eléctricos. Sin embargo, fue hasta los años 1980 cuando el término "mecatrónica" se integró formalmente al campo médico, con la introducción de sistemas de ventilación mecánica controlados electrónicamente.
+
+A partir de 2000, el avance de los microcontroladores y los sensores de bajo costo permitió el desarrollo de dispositivos más compactos y accesibles. En la última década, la incorporación de inteligencia artificial ha llevado a sistemas capaces de aprender y adaptarse a los patrones fisiológicos de los pacientes.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[b]{0.45\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{imagen1.jpg} 
+    \label{fig:detector_pet}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.45\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{imangen2.jpg} 
+    \label{fig:imagen_pet}
+  \end{subfigure}
+  \caption{Evolución }
+  \label{fig:pet}
+\end{figure}
+
+\section{LA SINERGIA ENTRE MECATRÓNICA Y MEDICINA}
+
+La mecatrónica —disciplina que integra mecánica, electrónica, informática y control— ha transformado radicalmente el sector médico en las últimas décadas. Desde dispositivos implantables hasta sistemas de diagnóstico automatizados, su aplicación ha mejorado la precisión, eficiencia y accesibilidad de los tratamientos.
+
+\section{Dispositivos Mecatrónicos Aplicados en la Práctica Clínica}
+Los sistemas desarrollados bajo principios mecatrónicos han demostrado mejorar significativamente los resultados clínicos en diversas áreas de la medicina. A continuación se detallan los más relevantes, con énfasis en aplicaciones validadas en contextos latinoamericanos.
+
+
+\subsection{Sistemas de Diagnóstico por Imagen}
+Los equipos de imagenología avanzada dependen de sistemas mecatrónicos para garantizar la precisión de la adquisición de datos y la seguridad del paciente. El tomógrafo computarizado (TC) y la resonancia magnética nuclear (RMN) son ejemplos emblemáticos.
+
+El TC utiliza un sistema de rotación controlado con precisión angular de ±0.1°, que permite obtener cortes transversales con resolución de hasta 0.5 mm. Los componentes mecatrónicos clave incluyen:
+\begin{enumerate}
+    \item Motor de inducción síncrono para rotación de la fuente y detectores
+    \item Sistema de posicionamiento lineal del paciente con control PID
+    \item Sensores de temperatura y radiación para monitoreo en tiempo real
+    \item Interfaz electrónica para conversión de señales analógicas a digitales
+\end{enumerate}
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.95\linewidth]{imangen2.jpg} 
+    \caption{Innovación }
+    \label{fig:tomografo_detalle}
+\end{figure}
+
+
+
+\subsection{Robótica Quirúrgica}
+La robótica quirúrgica representa uno de los campos más avanzados de la medicina mecatrónica. El sistema da Vinci, ampliamente utilizado en cirugías de abdomen, corazón y pelvis, integra cuatro brazos mecánicos con grados de libertad variables (hasta 7 por brazo).
+
+En México, se han implementado estos sistemas en hospitales de alta complejidad de Ciudad de México, Guadalajara y San Luis Potosí. Los beneficios clínicos incluyen:
+- Reducción del 30\% en la pérdida sanguínea durante intervenciones
+- Disminución del tiempo de hospitalización en un 40\%
+- Mejora de la precisión en zonas anatómicas complejas
+
+Otro desarrollo relevante es el robot de cirugía ortopédica "MEXROB", diseñado por investigadores de la Universidad Autónoma de San Luis Potosí, que reduce los costos de intervención en un 65\% respecto a sistemas importados.
+
+\section{SISTEMAS MECATRÓNICOS EN DIAGNÓSTICO MÉDICO}
+
+\subsection{Ultrasonidos Automatizados con Sistemas de Control}
+Estos dispositivos combinan transductores mecánicos, circuitos electrónicos y algoritmos de procesamiento de señales para generar imágenes de alta resolución. El sistema de movimiento mecatrónico permite posicionar el transductor con precisión milimétrica.
+
+
+
+\subsection{Tomógrafos de Emisión de Positrones (PET) con Componentes Mecatrónicos}
+Los sistemas PET utilizan mecanismos de rotación precisos, fuentes de radiación controladas y electrónica de adquisición de datos. La mecatrónica garantiza la alineación perfecta de los detectores durante todo el proceso de escaneo.
+\subsection{Equipos de Tratamiento Robótico}
+Los robots quirúrgicos permiten a los médicos realizar intervenciones con precisión milimétrica. El sistema da Vinci es un ejemplo destacado, que integra brazos mecánicos con sensores de fuerza y sistemas de visualización 3D.
+
+
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[b]{0.45\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{OIP.jpg} 
+    \label{fig:detector_pet}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.45\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{robotic-.jpg} 
+    \label{fig:imagen_pet}
+  \end{subfigure}
+  \caption{Equipos de Tratamiento Robótico}
+  \label{fig:pet}
+\end{figure}
+
+
+\subsection{Bombas de Infusión Automáticas y Sistemas de Monitoreo}
+Estos dispositivos regulan con precisión la dosis de medicamentos administrados al paciente. Incluyen sensores de flujo, válvulas electromecánicas y algoritmos de control que ajustan la entrega según las variables fisiológicas monitorizadas.
+
+
+\section{Diseño y Modelado de Sistemas Mecatrónicos Médicos}
+El proceso de diseño de un dispositivo mecatrónico médico requiere la integración de análisis biomédicos, simulaciones de ingeniería y validaciones clínicas. A continuación se describe el enfoque utilizado para el desarrollo de un sistema de rehabilitación de rodilla.
+
+\subsection{Metodología de Diseño}
+El proceso se divide en cinco etapas secuenciales:
+1. *Definición de requisitos clínicos*: Consulta con médicos rehabilitadores para establecer parámetros de movimiento, rangos de fuerza y límites de seguridad.
+2. *Análisis biomecánico*: Estudio del movimiento de la rodilla en pacientes sanos y con lesiones, utilizando sistemas de captura de movimiento 3D.
+3. *Diseño mecatrónico*: Selección de actuadores, sensores y arquitectura de control, con optimización de peso y tamaño.
+4. *Simulación y validación virtual*: Pruebas en entornos de simulación multiescala (MBS y FEM).
+5. *Pruebas clínicas preliminares*: Evaluación en un grupo reducido de pacientes para ajuste de parámetros.
+
+
+\section{Prótesis y Ortesis Inteligentes}
+Las prótesis mecatrónicas representan una aplicación clave para mejorar la calidad de vida de pacientes con amputaciones. A diferencia de las prótesis pasivas, estas integran sensores, actuadores y sistemas de control que permiten movimientos naturales y adaptativos.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\linewidth]{proto.jpg} 
+  \caption{Prótesis de brazo mecatrónica con sistema de control neuromuscular}
+  \label{fig:protesis}
+\end{figure}
+
+
+\subsection{Prótesis de Mano Inteligente}
+La prótesis "BioMech Hand MX", desarrollada en el Laboratorio de Mecatrónica Médica de Rioverde, integra:
+- 5 actuadores de motor paso a paso de bajo consumo
+- 12 sensores de fuerza y posición
+- Microcontrolador ARM Cortex-M4 con algoritmos de reconocimiento de patrones
+- Sistema de alimentación por batería recargable (8 horas de autonomía)
+
+El sistema utiliza señales electromiográficas (EMG) capturadas desde los músculos residuales del brazo para controlar los movimientos de la prótesis. Los algoritmos de machine learning permiten reconocer hasta 12 patrones de movimiento diferentes con una precisión del 94\%.
+
+
+\section{FUTUROS DESAFÍOS Y PERSPECTIVAS}
+
+La mecatrónica médica enfrenta desafíos clave como la miniaturización de componentes, la seguridad cibernética de los sistemas conectados y la reducción de costos. Entre las tendencias emergentes destacan:
+
+\begin{itemize}
+  \item \textbf{Nanomacatrónica}: Sistemas a escala molecular para diagnóstico y tratamiento intracelular
+  \item \textbf{Telemedicina mecatrónica}: Dispositivos controlados de forma remota para atención en zonas rurales
+  \item \textbf{Inteligencia artificial integrada}: Algoritmos que optimizan el rendimiento de los sistemas mecatrónicos
+\end{itemize}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\linewidth]{OIP (1).jpg} 
+  \caption{Visión conceptual de un centro médico mecatrónico del futuro}
+  \label{fig:futuro}
+\end{figure}
+
+\section{CONCLUSIONES}
+La medicina mecatrónica representa un campo de crecimiento exponencial, con potencial para reducir riesgos clínicos y mejorar la calidad de vida de los pacientes. La integración de tecnologías emergentes como la inteligencia artificial y los materiales compuestos ampliará aún más sus aplicaciones.
+
+
+\geometry{margin=2cm}
+
+\definecolor{azulfuerte}{RGB}{0,70,140}
+\definecolor{azulclaro}{RGB}{200,220,255}
+
+\pagestyle{fancy}
+\pagecolor{black}
+\color{white}
+\fancyhf{}
+\fancyhead[L]{\textcolor{azulfuerte}{Proyectos Mecatrónicos}}
+\fancyhead[R]{\textcolor{azulfuerte}{Industria 4.0}}
+\fancyfoot[C]{\thepage}
+
+\titleformat{\section}{\color{azulfuerte}\Large\bfseries}{}{0em}{}
+
+\newtcolorbox{cajaproyecto}{colback=azulclaro,colframe=azulfuerte,title=Resumen del Proyecto}
+\newtcolorbox{cajatecnica}{colback=white,colframe=azulfuerte,title=Fundamento Técnico}
+\newtcolorbox{cajaia}{colback=azulclaro,colframe=azulfuerte,title=Inteligencia Artificial}
+\newtcolorbox{cajacontrol}{colback=white,colframe=azulfuerte,title=Control del Sistema}
+\newtcolorbox{cajaventajas}{colback=azulclaro,colframe=azulfuerte,title=Análisis de Ventajas}
+
+\usepackage{graphicx}
+
+
+\begin{document}
+
+\title{\textcolor{azulfuerte}{\textbf{Sistema Inteligente de Clasificación de Objetos Mediante Visión Artificial, Aprendizaje Automático y Sistemas Mecatrónicos}}}
+
+\date{}
+\maketitle
+
+\section{Introducción}
+
+En la actualidad, la evolución tecnológica ha dado lugar a la denominada Industria 4.0, caracterizada por la digitalización, automatización e interconexión de sistemas industriales. Dentro de este contexto, la visión artificial y la inteligencia artificial desempeñan un papel fundamental al permitir que las máquinas interpreten su entorno y tomen decisiones autónomas.
+
+Uno de los procesos clave en la automatización industrial es la clasificación de objetos, el cual tradicionalmente ha sido realizado por operadores humanos. Sin embargo, este enfoque presenta limitaciones en términos de precisión, velocidad y eficiencia.
+
+El presente trabajo propone el desarrollo de un sistema inteligente capaz de clasificar objetos en tiempo real mediante técnicas avanzadas de procesamiento de imágenes y aprendizaje automático.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\columnwidth]{WhatsApp Imagei 2026-03-27 at 1.40.52 PM.jpeg}
+    \caption{Sistema de Clasificación Inteligente}
+    \label{fig:columna}
+\end{figure}
+
+\section{Justificación}
+
+La implementación de sistemas automatizados de clasificación permite:
+
+\begin{itemize}
+\item Reducir costos operativos
+\item Aumentar la productividad
+\item Mejorar la calidad del producto
+\item Minimizar errores humanos
+\end{itemize}
+
+Además, este tipo de sistemas es altamente escalable y adaptable a diferentes sectores industriales.
+
+\section{Estado del Arte}
+
+Actualmente, múltiples industrias utilizan sistemas de visión artificial basados en redes neuronales convolucionales (CNN). Empresas como Amazon y Tesla han implementado sistemas inteligentes para clasificación y reconocimiento de objetos.
+
+Las tendencias actuales incluyen:
+
+\begin{itemize}
+\item Uso de Deep Learning
+\item Sistemas embebidos inteligentes
+\item Integración con IoT
+\item Computación en la nube
+\end{itemize}
+
+\section{Descripción del Sistema}
+
+\begin{cajaproyecto}
+El sistema propuesto consiste en una plataforma mecatrónica que integra sensores, cámaras, algoritmos de inteligencia artificial y actuadores para clasificar objetos automáticamente en función de sus características físicas.
+\end{cajaproyecto}
+
+\section{Arquitectura del Sistema}
+
+El sistema se divide en cuatro módulos principales:
+
+\begin{itemize}
+\item Módulo de adquisición de datos
+\item Módulo de procesamiento
+\item Módulo de decisión
+\item Módulo de actuación
+\end{itemize}
+
+\section{Procesamiento de Imágenes}
+
+\begin{cajatecnica}
+El procesamiento de imágenes incluye varias etapas:
+
+\begin{enumerate}
+\item Captura de imagen
+\item Conversión de espacio de color (RGB a HSV)
+\item Filtrado (Gaussiano, mediana)
+\item Segmentación
+\item Detección de bordes (Canny)
+\item Extracción de características
+\end{enumerate}
+\end{cajatecnica}
+
+\section{Inteligencia Artificial}
+
+\begin{cajaia}
+Se utilizan redes neuronales convolucionales (CNN) para la clasificación de objetos. Estas redes permiten identificar patrones complejos mediante múltiples capas de procesamiento.
+
+El modelo puede representarse como:
+
+\[
+y = f(Wx + b)
+\]
+
+donde:
+\begin{itemize}
+\item $x$ es la entrada (imagen)
+\item $W$ son los pesos
+\item $b$ es el sesgo
+\item $y$ es la salida (clasificación)
+\end{itemize}
+\end{cajaia}
+
+\section{Sistema de Control}
+
+\begin{cajacontrol}
+El sistema de control se basa en lógica secuencial y control en tiempo real. Puede implementarse mediante microcontroladores (Arduino, ESP32) o computadoras embebidas (Raspberry Pi).
+\end{cajacontrol}
+
+El flujo de control es:
+
+\begin{itemize}
+\item Lectura de sensores
+\item Procesamiento de datos
+\item Toma de decisiones
+\item Activación de actuadores
+\end{itemize}
+
+\section{Modelo Matemático del Sistema}
+
+La clasificación puede definirse como:
+
+\[
+C = \arg\max P(C_i | x)
+\]
+
+Donde:
+\begin{itemize}
+\item $C$ es la clase asignada
+\item $P(C_i | x)$ es la probabilidad de pertenencia
+\end{itemize}
+
+\section{Métricas de Evaluación}
+
+Para evaluar el sistema se utilizan:
+
+\begin{itemize}
+\item Precisión (Accuracy)
+\item Recall
+\item F1-score
+\item Matriz de confusión
+\end{itemize}
+
+\section{Componentes del Sistema}
+
+\begin{itemize}
+\item Cámara de alta resolución
+\item Sensores infrarrojos
+\item Microcontrolador / CPU
+\item Servomotores
+\item Banda transportadora
+\end{itemize}
+
+\section{Aplicaciones}
+
+\begin{itemize}
+\item Industria alimentaria
+\item Reciclaje inteligente
+\item Logística automatizada
+\item Control de calidad
+\item Industria farmacéutica
+\end{itemize}
+
+\section{Ventajas}
+
+\begin{cajaventajas}
+\begin{itemize}
+\item Alta eficiencia
+\item Precisión superior al 95\%
+\item Reducción de costos a largo plazo
+\item Automatización completa
+\item Escalabilidad
+\end{itemize}
+\end{cajaventajas}
+
+\section{Limitaciones}
+
+\begin{itemize}
+\item Alto costo inicial
+\item Requiere entrenamiento del modelo
+\item Dependencia de iluminación
+\end{itemize}
+
+\section{Impacto en la Industria 4.0}
+
+Este sistema forma parte de los sistemas ciberfísicos que caracterizan la industria moderna, integrando hardware, software y conectividad para optimizar procesos.
+
+\section{Conclusión}
+
+El desarrollo de sistemas inteligentes de clasificación representa un avance significativo en la automatización industrial. La combinación de visión artificial, inteligencia artificial y sistemas mecatrónicos permite crear soluciones altamente eficientes y adaptables.
+
+Este proyecto demuestra el potencial de la tecnología para transformar procesos industriales tradicionales en sistemas inteligentes capaces de operar de manera autónoma.
+
+\clearpage
+\newpage
+\setlength{page}{4}
+
+\geometry{margin=2cm}
+    
+    \definecolor{royalblue}{RGB}{0,102,255}
+    
+    \newtcolorbox{cajaclave}
+    {colback=black,colframe=royalblue,coltext=white,title=Concepto clave}
+    
+    \newtcolorbox{cajadato}
+    {colback=gray!20,colframe=royalblue,coltext=black,title=Dato interesante}
+    
+    \newtcolorbox{cajainfo}{colback=blue!5,colframe=royalblue!70!black,arc=5mm,boxrule=0.8pt,title=Información relevante}
+    
+    \newtcolorbox{cajareflexion}
+    {colback=black,colframe=royalblue,coltext=white,title=Concepto clave}
+    }
+    
+    \titleformat{\section}
+    {\color{royalblue}\Large\bfseries\sffamily}
+    {\thesection}{1em}{}
+    
+    \titleformat{\subsection}
+    {\color{royalblue}\bfseries}
+    {\thesubsection}{1em}{}
+    \pagecolor{black}
+    \color{white}
+    \pagestyle{fancy}
+    \fancyhf{}
+    \fancyhead[L]{\textcolor{white}{MecatroniX}}
+    \fancyhead[R]{\textcolor{royalblue}{Tecnologías Emergentes}}
+    \fancyfoot[C]{\thepage}
+    
+    \setlength{\columnsep}{0.8cm}
+    
+    \begin{document}
+    
+    \title{\textcolor{royalblue}{\textbf{Inteligencia Artificial y el Futuro del Trabajo en la Ingeniería Mecatrónica}}}
+    \date{}
+    \maketitle   
+    \section{Introducción}
+    
+    La inteligencia artificial (IA) se ha convertido en una de las tecnologías más influyentes del siglo XXI. Su desarrollo ha sido impulsado por el aumento en la capacidad de cómputo, la disponibilidad de grandes cantidades de datos y el avance de los algoritmos de aprendizaje automático. Gracias a estos factores, hoy en día es posible crear sistemas capaces de reconocer imágenes, comprender lenguaje natural y tomar decisiones complejas.
+    
+    En el ámbito industrial, la inteligencia artificial ha transformado la forma en que se diseñan y operan los sistemas tecnológicos. Las fábricas modernas utilizan sensores, redes de comunicación y plataformas de análisis de datos para optimizar procesos productivos. A este tipo de infraestructura se le conoce como industria 4.0.
+    
+    La ingeniería mecatrónica juega un papel fundamental dentro de este ecosistema tecnológico. Esta disciplina integra conocimientos de mecánica, electrónica, informática y control automático para desarrollar sistemas inteligentes capaces de interactuar con su entorno.
+    
+    \begin{wrapfigure}{r}{0.45\columnwidth}
+    \centering
+    \includegraphics[width=0.44\columnwidth]{WhatsApp Image 2026-03-27 at 1.40.47 PM.jpeg}
+    \caption{Robot industrial con sistemas de inteligencia artificial.}
+    \end{wrapfigure}
+    
+    Sin embargo, el crecimiento acelerado de la inteligencia artificial también ha generado preocupación sobre el futuro del trabajo. Muchas personas se preguntan si los avances en automatización podrían provocar la desaparición de ciertos empleos o incluso reemplazar profesiones completas.
+    
+    Aunque esta preocupación es comprensible, numerosos estudios sugieren que la inteligencia artificial no necesariamente eliminará todas las ocupaciones humanas. En muchos casos, lo que ocurre es una transformación de las tareas laborales, donde las máquinas se encargan de actividades repetitivas mientras que los humanos se concentran en labores más creativas y estratégicas.
+    
+    \begin{cajaclave}
+    La inteligencia artificial consiste en el desarrollo de sistemas capaces de realizar tareas que normalmente requieren inteligencia humana, como el aprendizaje, la toma de decisiones y el reconocimiento de patrones.
+    \end{cajaclave}
+    
+    Comprender esta transformación es especialmente importante para los estudiantes de ingeniería mecatrónica, ya que serán parte de la generación de profesionales encargados de diseñar y mantener los sistemas inteligentes del futuro.
+    
+    \section{La Inteligencia Artificial en la Industria Moderna}
+    
+    La industria moderna ha adoptado la inteligencia artificial como una herramienta esencial para mejorar la eficiencia y la competitividad. En muchas plantas de producción, los algoritmos de aprendizaje automático analizan datos provenientes de sensores para detectar anomalías en el funcionamiento de maquinaria.
+    
+    Este tipo de tecnología permite implementar estrategias de mantenimiento predictivo. A diferencia del mantenimiento tradicional, que se realiza en intervalos programados, el mantenimiento predictivo utiliza datos en tiempo real para determinar el momento exacto en que una máquina necesita ser reparada.
+    
+    \begin{cajainfo}
+    Gracias al uso de inteligencia artificial, las empresas pueden reducir costos de mantenimiento, evitar fallas inesperadas y mejorar la eficiencia de sus procesos productivos.
+    \end{cajaclave}
+    
+    Otra aplicación importante se encuentra en la robótica industrial. Los robots modernos no solo ejecutan movimientos programados, sino que también pueden adaptarse a diferentes situaciones mediante algoritmos de aprendizaje.
+    
+    
+    
+    Por ejemplo, los sistemas de visión artificial permiten que los robots identifiquen objetos, reconozcan defectos en productos o incluso colaboren con trabajadores humanos en líneas de producción.
+    
+    \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{WhatsApp Image 2026-03-27 at 1.40.46 PM.jpeg}
+    \caption{Sistema de visión artificial aplicado en la industria.}
+    \end{figure}
+    
+    Estas tecnologías forman parte del concepto de fábricas inteligentes, donde los sistemas de producción están interconectados mediante redes digitales. En este entorno, la inteligencia artificial analiza continuamente la información generada por sensores y dispositivos para optimizar la operación de la planta.
+    
+    \section{Aplicaciones de la IA en la Ingeniería Mecatrónica}
+    
+    La naturaleza multidisciplinaria de la ingeniería mecatrónica facilita la integración de inteligencia artificial en diversas áreas tecnológicas. Los ingenieros pueden combinar sensores, actuadores, algoritmos y sistemas de control para crear soluciones innovadoras.
+    
+    \begin{table}[h]
+    \centering
+    \begin{tabular}{|m{3cm}|m{4cm}|}
+    \hline
+    \textbf{Área} & \textbf{Aplicación de IA} \\
+    \hline
+    Robótica & Robots autónomos y colaborativos \\
+    \hline
+    Manufactura & Control inteligente de procesos \\
+    \hline
+    Automoción & Vehículos autónomos y asistencia al conductor \\
+    \hline
+    Control & Optimización mediante aprendizaje automático \\
+    \hline
+    Visión Artificial & Inspección automática de calidad \\
+    \hline
+    Domótica & Sistemas inteligentes en hogares \\
+    \hline
+    \end{tabular}
+    \caption{Aplicaciones de IA en la ingeniería mecatrónica}
+    \end{table}
+    
+    En los sistemas de visión artificial, por ejemplo, las cámaras capturan imágenes de productos que pasan por una línea de producción. Posteriormente, los algoritmos de inteligencia artificial analizan estas imágenes para detectar defectos o irregularidades.
+    
+    Esto permite automatizar el proceso de control de calidad y mejorar significativamente la precisión de las inspecciones.
+    
+    \section{¿La IA Puede Reemplazar a los Ingenieros?}
+    
+    Una de las preguntas más frecuentes sobre la inteligencia artificial es si esta tecnología podría reemplazar a los profesionales humanos. Aunque algunos trabajos pueden automatizarse, muchas actividades realizadas por ingenieros requieren habilidades complejas que las máquinas aún no pueden replicar completamente.
+    
+    Los ingenieros mecatrónicos participan en el diseño, desarrollo e integración de sistemas tecnológicos complejos. Estas tareas requieren creatividad, pensamiento crítico y capacidad para resolver problemas inesperados.
+    
+    \begin{cajareflexion}
+    La inteligencia artificial no reemplaza completamente a los ingenieros; más bien, se convierte en una herramienta que amplía sus capacidades y les permite desarrollar soluciones más avanzadas.
+    \end{cajaclave}
+    
+    Además, el desarrollo y mantenimiento de sistemas de inteligencia artificial también requiere profesionales especializados. Esto significa que la expansión de estas tecnologías puede generar nuevas oportunidades laborales.
+    
+    \section{Habilidades Necesarias para el Futuro}
+    
+    Ante el avance de la inteligencia artificial, los ingenieros del futuro deberán desarrollar nuevas habilidades que les permitan adaptarse a un entorno tecnológico en constante evolución.
+    
+    Algunas de las competencias más importantes incluyen la programación, el análisis de datos, el aprendizaje automático y el diseño de sistemas automatizados. También será fundamental comprender cómo integrar hardware y software dentro de sistemas complejos.
+    
+    Otra habilidad importante es la capacidad de aprendizaje continuo. Las tecnologías cambian rápidamente, por lo que los profesionales deben mantenerse actualizados mediante cursos, investigaciones y experiencias prácticas.
+    
+    \section{Impacto Social y Ético de la Inteligencia Artificial}
+    
+    El desarrollo de la inteligencia artificial también plantea diversos desafíos sociales y éticos. Por ejemplo, la automatización de ciertos procesos puede provocar cambios en el mercado laboral, lo que obliga a las sociedades a adaptarse mediante nuevas políticas educativas y programas de capacitación.
+    
+    Asimismo, el uso de sistemas inteligentes plantea preguntas sobre la privacidad de los datos, la seguridad de los sistemas automatizados y la responsabilidad en caso de fallas tecnológicas.
+    
+    Por esta razón, los ingenieros no solo deben enfocarse en el desarrollo técnico de la tecnología, sino también considerar las implicaciones sociales de sus creaciones.
+    
+    \section{Desafíos Tecnológicos Actuales}
+    
+    A pesar de los grandes avances en inteligencia artificial, todavía existen múltiples desafíos tecnológicos que deben resolverse para lograr sistemas completamente autónomos y confiables. Uno de los principales retos es la interpretación correcta de datos en entornos cambiantes. Muchos algoritmos funcionan muy bien en condiciones controladas, pero pueden presentar dificultades cuando el entorno real es más complejo o impredecible.
+    
+    Otro desafío importante es la integración de diferentes tecnologías dentro de un mismo sistema. En la ingeniería mecatrónica, los sistemas inteligentes suelen combinar sensores, actuadores, microcontroladores, redes de comunicación y software avanzado. Lograr que todos estos componentes funcionen de manera eficiente requiere un diseño cuidadoso y una gran cantidad de pruebas.
+    
+    \begin{cajadato}
+    Algunos estudios estiman que para el año 2030 cerca del 30\% de las tareas industriales actuales podrían estar parcialmente automatizadas mediante inteligencia artificial y robótica avanzada.
+    \end{cajaclave}
+    
+    Además, el consumo energético de los sistemas de inteligencia artificial también es un tema relevante. El entrenamiento de modelos complejos puede requerir grandes cantidades de energía y recursos computacionales. Por esta razón, actualmente se investiga el desarrollo de algoritmos más eficientes y hardware especializado para aplicaciones de IA.
+    
+    \section{El Papel del Ingeniero Mecatrónico en la Era de la IA}
+    
+    El ingeniero mecatrónico ocupa una posición estratégica dentro del desarrollo de tecnologías inteligentes. Debido a su formación multidisciplinaria, tiene la capacidad de comprender tanto los aspectos físicos de los sistemas como los componentes digitales que permiten su funcionamiento.
+    
+    En proyectos industriales, los ingenieros mecatrónicos suelen participar en tareas como el diseño de robots, la programación de sistemas de control, la integración de sensores y el desarrollo de interfaces entre hardware y software. Cuando se incorpora inteligencia artificial, estos profesionales también pueden colaborar con especialistas en ciencia de datos y aprendizaje automático.
+    
+    \begin{tcolorbox}[title=Rol del ingeniero]
+    El ingeniero mecatrónico del futuro no solo diseñará máquinas, sino también sistemas inteligentes capaces de aprender, adaptarse y optimizar procesos de forma autónoma.
+    \end{cajaclave}
+    
+    Esto significa que los estudiantes de ingeniería deben prepararse para trabajar en equipos multidisciplinarios, donde convergen conocimientos de electrónica, programación, análisis de datos y diseño mecánico.
+    
+    \section{Conclusión}
+    
+    La inteligencia artificial representa una de las transformaciones tecnológicas más importantes de la actualidad. Su integración en la industria ha permitido mejorar la eficiencia, la precisión y la capacidad de adaptación de múltiples sistemas tecnológicos.
+    
+    En el campo de la ingeniería mecatrónica, la inteligencia artificial ofrece herramientas poderosas para el desarrollo de robots, sistemas de control avanzados y procesos de manufactura inteligente.
+    
+    Aunque existe preocupación sobre la posibilidad de que las máquinas reemplacen a los trabajadores humanos, la realidad es que estas tecnologías también generan nuevas oportunidades para los profesionales que sepan utilizarlas de manera efectiva.
+    
+    En este contexto, los ingenieros mecatrónicos del futuro deberán combinar conocimientos técnicos con habilidades de análisis, creatividad y aprendizaje continuo. De esta manera, podrán participar activamente en el desarrollo de las tecnologías que definirán la industria del mañana.
+    
+
+\end{document}

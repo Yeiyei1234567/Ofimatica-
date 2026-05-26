@@ -1,0 +1,49 @@
+\documentclass[12pt]{article}
+\usepackage[american]{circuitikz}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{margin=2cm}
+
+\begin{document}
+\section{ejemplos de circuitos electricos}
+\subsection*{circuito 1: Fuente DC y resitencias}
+
+\centering
+\begin{circuitikz}
+\draw
+(0,0) to [battery, l=$5v$] (0,3)
+    to[R, l=$220 \omega$] (3,3)
+    --(3,0) --(0,0)
+ \end{circuitikz}
+
+\subsection*{circuito 2: Resistencia y capacitor en serie}
+\begin{circuitikz}
+\draw
+(0,0) to [sV, l=$v(t)$] (0,3)
+    to[R, l=$4 \micro F$] (6,3)
+     --(6,0) --(0,0)
+ \end{circuitikz}
+ 
+ \subsection*{circuito 3: Inductor y resistencia en serie}
+\begin{circuitikz}
+\draw
+(0,0) to [battery1, l=$5v$] (0,3)
+    to[L, l=$5mH$] (3,3)
+    to[R, l=$220 \omega$] (6,3)
+     --(6,0) --(0,0)
+ \end{circuitikz}
+
+ \subsection*{circuito 4: LEDs en paralelo}
+\begin{circuitikz}
+\draw
+(0,0) to [battery1, invert, l=$V_s$] (0,4)
+\draw (0,4)--(4,4)
+\draw (0,0)--(4,0)
+\draw (1,4) to [led, l=R1] (1,0)
+\draw (4,4) to [led, l=R2] (4,0)
+\end{circuitikz}
+
+
+
+
+\end{document}

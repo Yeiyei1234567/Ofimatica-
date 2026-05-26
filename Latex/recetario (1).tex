@@ -1,0 +1,110 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\geometry{top=2.5cm, bottom=2.5cm, left=2cm, right=2cm}
+
+% Paquetes para diseño y colores
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{graphicx}
+
+% Definición de colores estilo cocina rústica / moderna
+\definecolor{primarycolor}{HTML}{8B4513} % Marrón terracota
+\definecolor{secondarycolor}{HTML}{556B2F} % Verde oliva
+\definecolor{backgroundbox}{HTML}{FDFBF7} % Blanco hueso para cajas
+
+% Configuración de títulos
+\titleformat{\section}{\color{primarycolor}\normalfont\Huge\bfseries\filcenter}{}{0em}{}
+\titleformat{\subsection}{\color{secondarycolor}\normalfont\Large\bfseries}{}{0em}{}[\titlerule]
+
+\begin{document}
+
+% --- PORTADA O TÍTULO PRINCIPAL ---
+\begin{center}
+    \vspace*{2cm}
+    {\Huge\bfseries\color{primarycolor} MI RECETARIO DE COCINA}\\[0.5cm]
+    {\Large\color{secondarycolor} Una colección de sabores y momentos}\\[1cm]
+    \rule{\linewidth}{1.5pt}\\[1.5cm]
+\end{center}
+\newpage
+
+% --- RECETA 1 ---
+\section{Pasta Alfredo con Pollo}
+\nopagebreak
+
+% Caja de información rápida
+\begin{tcolorbox}[colback=backgroundbox, colframe=secondarycolor, title=Información General, fonttitle=\bfseries]
+    \textbf{Tiempo de preparación:} 15 minutos \hfill \textbf{Tiempo de cocción:} 20 minutos \\
+    \textbf{Porciones:} 4 personas \hfill \textbf{Dificultad:} Fácil
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\begin{minipage}[t]{0.45\linewidth}
+    \subsection*{Ingredientes}
+    \begin{itemize}[leftmargin=*]
+        \item 400g de pasta (fettuccine o espagueti)
+        \item 2 pechugas de pollo cortadas en cubos
+        \item 2 tazas de crema para batir (nata)
+        \item 1/2 taza de queso parmesano rallado
+        \item 2 dientes de ajo finamente picados
+        \item 2 cucharadas de mantequilla
+        \item Sal y pimienta negra al gusto
+        \item Perejil fresco picado
+    \end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.5\linewidth}
+    \subsection*{Preparación}
+    \begin{enumerate}[leftmargin=*]
+        \item \textbf{Cocinar la pasta:} En una olla con abundante agua hirviendo y sal, cocina la pasta siguiendo las instrucciones del paquete hasta que quede al dente. Escurre y reserva.
+        \item \textbf{Dorar el pollo:} En una sartén grande a fuego medio, derrite una cucharada de mantequilla y cocina el pollo sazonado con sal y pimienta hasta que esté dorado. Retira el pollo y reserva.
+        \item \textbf{Salsa Alfredo:} En la misma sartén, agrega la otra cucharada de mantequilla y sofríe el ajo por 1 minuto. Vierte la crema y deja que hierva a fuego lento durante 3 minutos.
+        \item \textbf{Integrar:} Agrega el queso parmesano y mezcla bien hasta que se derrita y la salsa espese. Incorpora el pollo y la pasta a la sartén.
+        \item \textbf{Servir:} Mezcla todo perfectamente, rectifica el punto de sal y sirve caliente decorado con perejil fresco.
+    \end{enumerate}
+\end{minipage}
+
+\vspace{1.5cm}
+\rule{\linewidth}{0.5pt}
+\vspace{1.5cm}
+
+% --- RECETA 2 ---
+\section{Panqueques Clásicos Americanos}
+
+\begin{tcolorbox}[colback=backgroundbox, colframe=secondarycolor, title=Información General, fonttitle=\bfseries]
+    \textbf{Tiempo de preparación:} 10 minutos \hfill \textbf{Tiempo de cocción:} 15 minutos \\
+    \textbf{Porciones:} 3 personas (aprox. 8 hotcakes) \hfill \textbf{Dificultad:} Muy Fácil
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\begin{minipage}[t]{0.45\linewidth}
+    \subsection*{Ingredientes}
+    \begin{itemize}[leftmargin=*]
+        \item 1 taza de harina de trigo
+        \item 2 cucharaditas de polvo para hornear
+        \item 2 cucharadas de azúcar
+        \item 1 pizca de sal
+        \item 3/4 de taza de leche entera
+        \item 1 huevo grande
+        \item 2 cucharadas de mantequilla derretida
+        \item Esencia de vainilla al gusto
+    \end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.5\linewidth}
+    \subsection*{Preparación}
+    \begin{enumerate}[leftmargin=*]
+        \item \textbf{Mezclar secos:} En un tazón grande, cierne la harina, el polvo para hornear, el azúcar y la sal.
+        \item \textbf{Mezclar líquidos:} En otro recipiente, bate el huevo junto con la leche, la mantequilla derretida y la vainilla.
+        \item \textbf{Unir todo:} Vierte los ingredientes líquidos sobre los secos y mezcla suavemente con un batidor de globo. No importa si quedan pequeños grumos, batir de más los endurecerá.
+        \item \textbf{Cocinar:} Calienta una sartén antiadherente a fuego medio y engrásala con un poco de mantequilla. Vierte un cucharón de mezcla.
+        \item \textbf{Voltear:} Cuando aparezcan burbujas en la superficie de la masa, dale la vuelta con una espátula y cocina por el otro lado hasta que esté dorado. Servir con miel.
+    \end{enumerate}
+\end{minipage}
+
+\end{document}

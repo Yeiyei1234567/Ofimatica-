@@ -1,0 +1,194 @@
+\pdfminorversion=6
+\documentclass[aspectratio=169]{beamer}
+\usepackage{geometry}
+\geometry{margin=0.8cm}
+\usepackage{graphicx}
+
+\mode<presentation>
+{
+  % Tema elegante con fuentes Serif para un estilo académico y clásico
+  \usetheme{Boadilla}
+  \usecolortheme{rose} 
+  \usefonttheme{serif} 
+  
+  \setbeamertemplate{caption}[numbered]
+  \setbeamertemplate{navigation symbols}{} % Limpia la pantalla de iconos de navegación
+  \setbeamertemplate{footline}[frame number] 
+} 
+
+% Definición de comandos adaptados al nuevo tema
+\newcommand{\saga}{\textbf{PSICOLOGÍA DEL COLOR}}
+\newcommand{\yo}{Diana Anahi Buenavides Martinez}
+\newcommand{\magia}[1]{\textit{\textbf{\color{burgundy}#1}}}
+\newcommand{\escuela}{Facultad de Estudios Profesionales Zona Media}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc} % Cambiado a utf8 estándar para evitar conflictos en Overleaf
+\usepackage{tikz}
+\usepackage{courier}
+\usepackage{array}
+\usepackage{bold-extra}
+\usepackage[thicklines]{cancel}
+\usepackage{fancyvrb}
+\usepackage{colortbl} % Necesario para colorear filas de tablas sin errores
+
+% Paleta de colores basada en la Psicología del Color de Hogwarts
+\xdefinecolor{burgundy}{rgb}{0.55, 0.05, 0.15}      % Rojo Gryffindor: Pasión, valor, impulso
+\xdefinecolor{wizardblue}{rgb}{0.12, 0.29, 0.59}   % Azul Ravenclaw: Inteligencia, calma, lógica
+\xdefinecolor{serpentgreen}{rgb}{0.10, 0.40, 0.25} % Verde Slytherin: Ambición, poder, astucia
+\xdefinecolor{oldgold}{rgb}{0.78, 0.60, 0.15}      % Amarillo/Oro Hufflepuff: Lealtad, calidez, esfuerzo
+\xdefinecolor{charcoal}{rgb}{0.20, 0.20, 0.22}     % Gris oscuro para neutralidad y estructura
+\xdefinecolor{softcream}{rgb}{0.98, 0.97, 0.94}    % Fondo pergamino suave para bloques
+
+% Ajustamos los colores globales de Beamer
+\setbeamercolor{palette primary}{bg=charcoal, fg=white}
+\setbeamercolor{palette secondary}{bg=oldgold, fg=white}
+\setbeamercolor{palette tertiary}{bg=burgundy, fg=white}
+\setbeamercolor{titlelike}{bg=charcoal, fg=white}
+\setbeamercolor{structure}{fg=burgundy} 
+\setbeamercolor{block title}{bg=charcoal!90, fg=white}
+\setbeamercolor{block body}{bg=softcream, fg=black}
+
+\title{\saga}
+\subtitle{El Significado de la Identidad Visual en Hogwarts}
+\author{\yo}
+\institute{\escuela}
+\date{\today}
+
+\begin{document}
+
+% Barra superior elegante con el lema clásico
+\logo{\pgfputat{\pgfxy(0.11, 7.4)}{\pgfbox[right,base]{\tikz{
+    \filldraw[fill=charcoal, draw=none] (0 cm, 0.1 cm) rectangle (50 cm, 1 cm);
+    \filldraw[fill=oldgold, draw=none] (0 cm, 0 cm) rectangle (50 cm, 0.1 cm);
+}\mbox{\hspace{-9 cm}\small\color{oldgold}\fontfamily{pzc}\selectfont ~~~~~~Draco Dormiens Nunquam Titillandus}}}}
+
+% Diapositiva 1: Portada
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% Diapositiva 2: Introducción
+\begin{frame}{\saga}
+\vspace{0.1 cm}
+
+\begin{block}{Introducción: La Fuerza de la Identidad Visual}
+{\fontsize{9.5pt}{11pt}\selectfont 
+El color no es meramente estético; genera un impacto psicológico inmediato en el espectador. J.K. Rowling y los diseñadores de la saga utilizaron la psicología del color para segmentar las personalidades, virtudes y defectos de las cuatro facciones del Colegio Hogwarts, convirtiendo los uniformes en un reflejo del alma de sus integrantes.
+}
+\end{block}
+
+\vspace{-0.1 cm}
+{\fontsize{9.5pt}{11pt}\selectfont
+\begin{itemize}
+  \item \textbf{Cromatismo Emocional:} Los colores activan respuestas inconscientes asociadas al peligro, la calma, la ambición o la pureza.
+  \item \textbf{La Dualidad del Color:} Cada tono utilizado posee una cara positiva (virtud) y una negativa (defecto o extremismo).
+  \item \textbf{Narrativa Visual:} El espectador identifica las intenciones y el trasfondo de un personaje con tan solo ver su heráldica.
+\end{itemize}
+}
+\end{frame}
+
+% Diapositiva 3: El Trío de Oro y su espectro
+\begin{frame}{El Impacto Teórico}
+\begin{center}
+    \large\color{burgundy}\textbf{La Tríada del Comportamiento Humano}
+    \vfill
+    \begin{minipage}{0.75\linewidth}
+    \centering\itshape
+    "La selección de colores en la literatura de fantasía actúa como un ancla psicológica. El rojo despierta la acción inmediata, el azul la reflexión sesuda y el amarillo la constancia incondicional."
+    \end{minipage}
+    \vfill
+    \tikz{
+        \draw[line width=1.5pt, color=oldgold] (-2,0) -- (2,0);
+        \node[draw=burgundy, fill=softcream, thick, shape=circle, inner sep=4pt] at (0,0) {\color{burgundy}\textbf{P.C}};
+    }
+\end{center}
+\end{frame}
+
+% Diapositiva 4: El Castillo y el Lienzo Neutral
+\begin{frame}{La Armonía del Entorno}
+\vfill
+\begin{center}
+    \Large \color{charcoal}\textbf{\textit{"El color comunica allí donde las palabras no llegan."}}
+    \vfill
+    \begin{block}{El Contraste de las Estancias}
+    Mientras las áreas comunes del castillo mantienen tonos grises y pétreos (neutralidad y sabiduría antigua), las salas comunes rompen la monotonía utilizando la saturación cromática para reafirmar la identidad de sus estudiantes.
+    \end{block}
+\end{center}
+\vfill
+\end{frame}
+
+% Diapositiva 5: Gráfico de las Cuatro Casas (Uso de TikZ mejorado)
+\begin{frame}{El Mapa Psicológico de las Casas}
+    \begin{center}
+    \small\color{charcoal} El equilibrio del colegio radica en la compensación de estas cuatro fuerzas cromáticas:
+    \vfill
+    \begin{tikzpicture}[node distance=3.2cm, every node/.style={font=\sffamily\bfseries\footnotesize, inner sep=8pt}]
+        \node (gry) [draw=burgundy, fill=burgundy!15, text=burgundy, rounded corners=3pt] {Gryffindor (Pasión/Valor)};
+        \node (rav) [draw=wizardblue, fill=wizardblue!15, text=wizardblue, rounded corners=3pt, right of=gry] {Ravenclaw (Mente/Lógica)};
+        \node (sly) [draw=serpentgreen, fill=serpentgreen!15, text=serpentgreen, rounded corners=3pt, below of=rav, node distance=2.2cm] {Slytherin (Poder/Astucia)};
+        \node (huf) [draw=oldgold, fill=oldgold!20, text=black, rounded corners=3pt, left of=sly] {Hufflepuff (Lealtad/Paz)};
+        
+        \draw[<->, line width=1.2pt, color=charcoal!40] (gry) -- (rav);
+        \draw[<->, line width=1.2pt, color=charcoal!40] (rav) -- (sly);
+        \draw[<->, line width=1.2pt, color=charcoal!40] (sly) -- (huf);
+        \draw[<->, line width=1.2pt, color=charcoal!40] (huf) -- (gry);
+    \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+% Diapositiva 6: Tabla Informativa
+\begin{frame}{Significados Psicológicos según la Casa}
+   \begin{center}
+   \small Análisis del lenguaje del color aplicado a las virtudes principales:
+   \vfill
+   \begin{tabular}{|l|c|l|}
+   \hline
+   \rowcolor{charcoal} \color{white}\textbf{Casa} & \color{white}\textbf{Tono Predominante} & \color{white}\textbf{Efecto Psicológico Asociado} \\ \hline
+   \textbf{Gryffindor} & Rojo Granate & Estimula la adrenalina, el coraje, la osadía y el peligro. \\ \hline
+   \textbf{Ravenclaw}  & Azul Profundo & Fomenta la concentración, la introspección, la paz y la lógica. \\ \hline
+   \textbf{Slytherin}  & Verde Esmeralda & Evoca el estatus, la ambición, el misterio y el renacimiento. \\ \hline
+   \textbf{Hufflepuff} & Amarillo Oro & Transmite optimismo, calidez, trabajo en equipo y constancia. \\ \hline
+   \end{tabular}
+   \end{center}
+\end{frame}
+
+% Diapositiva 7: Disciplinas y su color
+\begin{frame}{La Percepción de la Magia}
+    \begin{block}{Efectos Visuales en el Espectador}
+    La psicología del color también segmenta los tipos de magia mostrados a lo largo de la historia:
+    \end{block}
+    \vfill
+    \begin{columns}[T]
+        \begin{column}{0.48\linewidth}
+            \begin{itemize}
+                \item \magia{Chispazos Rojos / Dorados:} Asociados a la protección, la defensa activa y los hechizos de desarme benévolos.
+                \item \magia{Auras Azules / Blancas:} Destinados a la alta magia cognitiva, encantamientos de memoria y proyecciones mentales.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.48\linewidth}
+            \begin{itemize}
+                \item \magia{Destellos Verdes Oscuros:} Relacionados intrínsecamente con la corrupción, la ambición desmedida y la letalidad.
+                \item \magia{Luminosidad Cálida:} Utilizada en entornos seguros, de sanación, herbolaria y confort hogareño.
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% Diapositiva 8: Conclusión
+\begin{frame}{Conclusión}
+\begin{center}
+    \tikz\draw[line width=1pt, color=oldgold] (-3,0) -- (3,0);
+    \vfill
+    \begin{minipage}{0.85\linewidth}
+    \centering\fontsize{11pt}{14pt}\selectfont
+    El uso del color en la narrativa demuestra que la identidad visual es una herramienta indispensable para conectar con el inconsciente del público. 
+    
+    Al equilibrar las cuatro casas mediante paletas cromáticas opuestas pero complementarias, se nos enseña que ninguna virtud es autosuficiente: la mente necesita del valor, y la ambición requiere de la lealtad para no perder su rumbo.
+    \end{minipage}
+    \vfill
+    \tikz\draw[line width=1pt, color=oldgold] (-3,0) -- (3,0);
+\end{center}
+\end{frame}
+
+\end{document}
